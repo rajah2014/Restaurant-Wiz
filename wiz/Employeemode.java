@@ -21,7 +21,7 @@ public class Employeemode extends javax.swing.JFrame {
      */
     public Employeemode() {
         initComponents();
-        //DefaultListModel list = (DefaultListModel) menuList.getModel();
+     
     }
 
     /**
