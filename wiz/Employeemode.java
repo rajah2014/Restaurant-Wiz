@@ -213,8 +213,8 @@ public class Employeemode extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
   public void close() {
 
-        WindowEvent winClosingEvent = new WindowEvent(this, WindowEvent.WINDOW_CLOS­ING);
-        Toolkit.getDefaultToolkit().getSystemEve­ntQueue().postEvent(winClosingEvent);
+        WindowEvent winClosingEvent = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
 
     }
     private void finalizeorderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_finalizeorderActionPerformed

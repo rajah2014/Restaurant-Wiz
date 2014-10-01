@@ -200,8 +200,8 @@ public class Payroll extends javax.swing.JFrame {
     }//GEN-LAST:event_exitActionPerformed
     public void close() {
 
-        WindowEvent winClosingEvent = new WindowEvent(this, WindowEvent.WINDOW_CLOS­ING);
-        Toolkit.getDefaultToolkit().getSystemEve­ntQueue().postEvent(winClosingEvent);
+        WindowEvent winClosingEvent = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
+        Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(winClosingEvent);
 
     }
     private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
