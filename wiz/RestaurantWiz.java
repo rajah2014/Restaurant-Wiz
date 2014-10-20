@@ -144,14 +144,14 @@ public class RestaurantWiz extends javax.swing.JFrame {
 
         jLabel4.setText("Password:");
 
-        clear1.setText("clear");
+        clear1.setText("Clear");
         clear1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clear1ActionPerformed(evt);
             }
         });
 
-        exit1.setText("exit");
+        exit1.setText("Exit");
         exit1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exit1ActionPerformed(evt);
@@ -349,7 +349,7 @@ public class RestaurantWiz extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JButton login1;
     private javax.swing.JButton login2;
-    private javax.swing.JTextField manager;
-    private javax.swing.JPasswordField managerpass;
+    protected javax.swing.JTextField manager;
+    protected javax.swing.JPasswordField managerpass;
     // End of variables declaration//GEN-END:variables
 }

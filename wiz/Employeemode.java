@@ -4,12 +4,14 @@
  * and open the template in the editor.
  */
 
-// LAST MODIFIED: 9/30/2014 by Justin
+// LAST MODIFIED: 10/20/2014 by Justin
+// TODO: Add DB Support
+
 package restaurant.wiz;
 
 import java.awt.Toolkit;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 
 import javax.swing.DefaultListModel;
@@ -44,11 +46,10 @@ public class Employeemode extends javax.swing.JFrame {
 		jLabel2 = new javax.swing.JLabel();
 		jScrollPane1 = new javax.swing.JScrollPane();
 		entree = new javax.swing.JList();
-		entree.setSelectionMode(ListSelectionModel.SINGLE_SELECTION); // user
-																		// can
-																		// only
-																		// select
-																		// one
+
+		// user can only select one
+		entree.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
 		jLabel3 = new javax.swing.JLabel();
 		jScrollPane2 = new javax.swing.JScrollPane();
 		desert = new javax.swing.JList();
@@ -70,14 +71,13 @@ public class Employeemode extends javax.swing.JFrame {
 		exit = new javax.swing.JButton();
 		update = new javax.swing.JButton();
 		managermode = new javax.swing.JButton();
-		jScrollPane6 = new javax.swing.JScrollPane();
+		orderedItems = new javax.swing.JScrollPane();
+		listModel = new DefaultListModel();
+		order = new JList(listModel);
 
 		setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
 		jLabel1.setText("Menu:");
-
-		// used for the cumulative order list
-		DefaultListModel listModel = new DefaultListModel();
 
 		jLabel2.setText("Entree:");
 
@@ -95,36 +95,13 @@ public class Employeemode extends javax.swing.JFrame {
 		});
 		jScrollPane1.setViewportView(entree);
 
-		entree.addMouseListener(new MouseListener() {
+		entree.addMouseListener(new MouseAdapter() {
 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 
 				listModel.addElement(entree.getSelectedValue());
-
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// don't do anything
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// don't do anything
-
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// don't do anything
-
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// don't do anything
+				order.ensureIndexIsVisible(listModel.size() - 1);
 
 			}
 
@@ -146,37 +123,14 @@ public class Employeemode extends javax.swing.JFrame {
 		});
 		jScrollPane2.setViewportView(desert);
 
-		desert.addMouseListener(new MouseListener() {
+		desert.addMouseListener(new MouseAdapter() {
 
 			// user added a menu item
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 
 				listModel.addElement(desert.getSelectedValue());
-
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// don't do anything
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// don't do anything
-
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// don't do anything
-
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// don't do anything
+				order.ensureIndexIsVisible(listModel.size() - 1);
 
 			}
 
@@ -185,7 +139,7 @@ public class Employeemode extends javax.swing.JFrame {
 		jLabel4.setText("Misc.:");
 
 		misc.setModel(new javax.swing.AbstractListModel() {
-			String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4",
+			String[] strings = { "jay", "Item 2", "Item 3", "Item 4",
 					"Item 5" };
 
 			public int getSize() {
@@ -198,36 +152,13 @@ public class Employeemode extends javax.swing.JFrame {
 		});
 		jScrollPane3.setViewportView(misc);
 
-		misc.addMouseListener(new MouseListener() {
+		misc.addMouseListener(new MouseAdapter() {
 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 
 				listModel.addElement(misc.getSelectedValue());
-
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// don't do anything
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// don't do anything
-
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// don't do anything
-
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// don't do anything
+				order.ensureIndexIsVisible(listModel.size() - 1);
 
 			}
 
@@ -236,7 +167,7 @@ public class Employeemode extends javax.swing.JFrame {
 		jLabel5.setText("Nonalcohol:");
 
 		nonalc.setModel(new javax.swing.AbstractListModel() {
-			String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4",
+			String[] strings = { "reza", "Item 2", "Item 3", "Item 4",
 					"Item 5" };
 
 			public int getSize() {
@@ -249,36 +180,13 @@ public class Employeemode extends javax.swing.JFrame {
 		});
 		jScrollPane4.setViewportView(nonalc);
 
-		nonalc.addMouseListener(new MouseListener() {
+		nonalc.addMouseListener(new MouseAdapter() {
 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 
 				listModel.addElement(nonalc.getSelectedValue());
-
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// don't do anything
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// don't do anything
-
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// don't do anything
-
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// don't do anything
+				order.ensureIndexIsVisible(listModel.size() - 1);
 
 			}
 
@@ -300,44 +208,30 @@ public class Employeemode extends javax.swing.JFrame {
 		});
 		jScrollPane5.setViewportView(alc);
 
-		alc.addMouseListener(new MouseListener() {
+		alc.addMouseListener(new MouseAdapter() {
 
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 
 				listModel.addElement(alc.getSelectedValue());
-
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// don't do anything
-
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// don't do anything
-
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// don't do anything
-
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// don't do anything
+				order.ensureIndexIsVisible(listModel.size() - 1);
 
 			}
 
 		});
-
-		// shows the cumulative order
-		JList order = new JList(listModel);
-		jScrollPane6.setViewportView(order);
+		
+		// cumulative order list
+		orderedItems.setViewportView(order);
+		
+		// remove items from order list one-by-one
+		order.addMouseListener(new MouseAdapter() {
+			
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				listModel.removeElement(order.getSelectedValue());
+			}
+		});
+		
 
 		finalizeorder.setText("Finalize order");
 		finalizeorder.addActionListener(new java.awt.event.ActionListener() {
@@ -346,23 +240,35 @@ public class Employeemode extends javax.swing.JFrame {
 			}
 		});
 
-		clear.setText("clear");
+		clear.setText("Clear");
 		clear.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				clearActionPerformed(evt);
 			}
 		});
 
-		exit.setText("exit");
+		exit.setText("Exit");
 		exit.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				exitActionPerformed(evt);
 			}
 		});
 
-		update.setText("Update");
+		update.setText("Update"); // what is this
 
-		managermode.setText("Managermode");
+		managermode.setText("Manager Mode");
+		
+		/*
+		RestaurantWiz wiz = new RestaurantWiz();
+		
+		if ("admin".equals(wiz.manager.getText()) && "admin123".equals(wiz.managerpass.getText())) {
+			managermode.setEnabled(true);
+		} else {
+			managermode.setEnabled(false);
+		}
+		*/
+		
+		
 		managermode.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				managermodeActionPerformed(evt);
@@ -487,7 +393,7 @@ public class Employeemode extends javax.swing.JFrame {
 																.addComponent(
 																		managermode)))
 								.addGap(29, 29, 29)
-								.addComponent(jScrollPane6,
+								.addComponent(orderedItems,
 										javax.swing.GroupLayout.PREFERRED_SIZE,
 										244,
 										javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -516,7 +422,7 @@ public class Employeemode extends javax.swing.JFrame {
 										layout.createParallelGroup(
 												javax.swing.GroupLayout.Alignment.LEADING,
 												false)
-												.addComponent(jScrollPane6)
+												.addComponent(orderedItems)
 												.addGroup(
 														layout.createParallelGroup(
 																javax.swing.GroupLayout.Alignment.LEADING,
@@ -558,8 +464,7 @@ public class Employeemode extends javax.swing.JFrame {
 	}
 
 	private void finalizeorderActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_finalizeorderActionPerformed
-		// TODO add your handling code here:
-		// DefaultListModel list = (DefaultListModel) display.getModel();
+
 		close();
 		Payment s = new Payment();
 		s.setVisible(true);
@@ -567,17 +472,24 @@ public class Employeemode extends javax.swing.JFrame {
 	}// GEN-LAST:event_finalizeorderActionPerformed
 
 	private void clearActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_clearActionPerformed
-		// TODO add your handling code here:
+
+		// clear selections and ordered item list
+		if (evt.getSource() == clear) {
+			listModel.clear();
+			misc.clearSelection();
+			alc.clearSelection();
+			desert.clearSelection();
+			entree.clearSelection();
+			nonalc.clearSelection();
+		}
 
 	}// GEN-LAST:event_clearActionPerformed
 
 	private void exitActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_exitActionPerformed
-		// TODO add your handling code here:
 		System.exit(0);
 	}// GEN-LAST:event_exitActionPerformed
 
 	private void managermodeActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_managermodeActionPerformed
-		// TODO add your handling code here:
 
 		close();
 		Managermode s = new Managermode();
@@ -648,10 +560,12 @@ public class Employeemode extends javax.swing.JFrame {
 	private javax.swing.JScrollPane jScrollPane3;
 	private javax.swing.JScrollPane jScrollPane4;
 	private javax.swing.JScrollPane jScrollPane5;
-	private javax.swing.JScrollPane jScrollPane6;
+	private javax.swing.JScrollPane orderedItems;
 	private javax.swing.JButton managermode;
 	private javax.swing.JList misc;
 	private javax.swing.JList nonalc;
 	private javax.swing.JButton update;
+	private javax.swing.JList order;
+	private javax.swing.DefaultListModel listModel;
 	// End of variables declaration//GEN-END:variables
 }
